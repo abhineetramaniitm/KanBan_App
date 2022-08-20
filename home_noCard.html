@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <style type="text/css">
+        #header {font-size: 40px},
+        #summary {text-align: right},
+        #logout {text-align: right}
+         body{
+                 background: lime-yellow;
+                 }
+        p{  font-size: 32px;
+            color: #AFFD19;
+            font-weight: bold;
+            }
+        input{ size: 18px;}
+        label{ font-size: 18px;}
+        #button{background: black;
+                color: white;
+                }
+    </style>
+</head>
+<body>
+  <div id="header">
+	    Hi, {{username}}
+        <span style="float:right;"><a id="summary" href="/home/summary">Summary</a> |<a href="/home/logout">Logout</a></span>
+    </div>
+    <div id="body">
+        <h2>There is no list on board</h2>
+        <a href="/home/create_card"><input type="submit" value = "Add Card" /></a>
+    </div>
+</body>
+</html>

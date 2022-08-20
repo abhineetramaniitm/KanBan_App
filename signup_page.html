@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signup</title>
+    <style>
+        body{height: 200px;
+                 width: 400px;
+                 background: #7F8AA9;
+
+                 position: fixed;
+                 top: 50%;
+                 left: 50%;
+                 margin-top: -120px;
+                 margin-left: -120px;
+
+                 color: yellow;
+                 }
+        p{  font-size: 32px;
+            color: #AFFD19;
+            font-weight: bold;
+            }
+        input{ size: 18px;}
+        label{ font-size: 18px;
+               color: yellow;}
+        a{color: white;}
+        #button{background: black;
+                color: white;
+                }
+    </style>
+</head>
+<body>
+    <form action="/signup" method="POST" id="signup-form">
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username" required />
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="pd" required />
+        </div>
+        <div>
+            <a href="/login"><input id="button" type="submit" value = "Submit"></a>
+        </div>
+    </form>
+</body>
+</html>

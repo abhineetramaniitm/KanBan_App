@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <style type="text/css">
+        body{height: 200px;
+                 width: 400px;
+                 background: #7F8AA9;
+
+                 position: fixed;
+                 top: 50%;
+                 left: 50%;
+                 margin-top: -120px;
+                 margin-left: -120px;
+
+                 color: yellow;
+                 }
+        p{  font-size: 32px;
+            color: #AFFD19;
+            font-weight: bold;
+            }
+        input{ size: 24px;}
+        label{ font-size: 24Rpx;
+               color: yellow;}
+        a{color: white;}
+        #button{background: black;
+                color: white;
+                }
+    </style>
+</head>
+<body>
+    <p>
+        Kanban Basic Application
+        <br>
+        Welcome to my Project
+    </p>
+    <div>
+        {% if error %}
+            {{ error }}
+        {% endif %}
+    </div>
+    <form action="/login" method="POST" id="login-form">
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username" required />
+        </div>
+        <br>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="pd" required />
+        </div>
+        <br>
+        <div>
+            <a href="/{{username}}/home"><input id="button" type="submit" value = "Login"></a>
+        </div>
+        <br>
+    </form>
+    Not a user? <a href="/signup">Sign Up</a>
+</body>
+</html>

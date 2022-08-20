@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Move List</title>
+    <style type="text/css">
+        #header {font-size: 40px},
+        body{
+                 background: lime-yellow;
+                 }
+        p{  font-size: 32px;
+            color: #AFFD19;
+            font-weight: bold;
+            }
+        input{ size: 18px;}
+        label{ font-size: 18px;}
+        #button{background: black;
+                color: white;
+                }
+    </style>
+</head>
+<body>
+    <div id="header">
+	    Hi, {{username}}
+        <span style="float:right;"><a id="summary" href="/home/summary">Summary</a> |<a href="/home/logout">Logout</a></span>
+    </div>
+    <div id="body">
+    <form action="/home/move_task" method="POST" id="Move_task-form">
+        <div>
+            <label for="Title">Title: </label>
+            <select name="title" id="title">
+            {% for t in task %}
+            <option value="{{ t["Title"] }}"> {{ t["Title"] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="card">Card Name: </label>
+            <select name="card" id="card">
+            {% for c in card %}
+            <option value="{{ c["ID"] }}">{{ c["Name"] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <a href="/home"> <input id="button" type="submit" value="Move" /> </a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

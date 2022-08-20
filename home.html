@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <style type="text/css">
+        #header{font-size: 40px;
+                 font-align: right;}
+        span{text-align: right;}
+        body{
+                 background: lime-yellow;
+                 }
+        #card{font-size: 20px;
+              border: 5px;
+              border-style: solid;
+              border-color: violet;
+              background: grey;
+              color: #FFF0F8;
+              width: 900px;
+              margin: auto;
+              length: 400px;
+        }
+        input{ size: 18px;}
+        label{ font-size: 18px;}
+        #button{background: black;
+                color: white;
+                }
+        input{ size: 18px;}
+        label{ font-size: 18px;}
+        #button{background: black;
+                color: white;
+                }
+        #Task{ border: 5px;
+               border-style: solid;
+               border-color: black;
+               width: 500px;
+               margin: auto;
+               background: #A963FF;
+               length: 200;
+               color: #FFF0F8;}
+        #list_update{color:#352311;}
+        #list_delete{color: #332211;}
+    </style>
+</head>
+<body>
+    <div id="header">
+	    Hi, {{username}}
+        <span style="float:right;"> <a id="summary" href="/home/summary">Summary</a> |<a href="/home/logout">Logout</a></span>
+    </div>
+    <div id="main">
+        {% for card in card_list %}
+            <div id="card">
+            <b><center> {{card["Name"]}} </center></b>
+            <center>
+            <label>Modify Card: </label>
+                 <a id="card_update" href="/home/{{ card["ID"] }}/update_card">Update</a>      <a id="card_delete" href="/home/{{ card["ID"] }}/delete_card">Delete</a>
+            </center>
+            <br>
+            <div>
+                {% for cl in clist %}
+                <div id="Task">
+                    {% if card["ID"] == cl["Card_id"] %}
+                    <b><center> Title: {{cl["Title"]}} </center></b>
+                        <center> Content: {{cl["Content"]}} </center>
+                        <center> Deadline: {{cl["Deadline"]}} </center>
+                        <center> Complete: {{cl["C_Flag"]}} </center>
+                        <br>
+                        <center>
+                        <label>Change List: </label>
+                            <a id="list_update" href="/home/update_card/update_list">Update</a>      <a id="list_delete" href="/home/{{ card["ID"] }}/update_card/{{ cl["Title"] }}/delete_list">Delete</a>
+                        </center>
+                        <br>
+                        <br>
+                    {%  endif %}
+                    <br>
+                </div>
+                {% endfor %}
+            </div>
+                <center><a href="/home/create_Task"><input id="button" type="submit" value = "Add List" /></a></center>
+                <br>
+                <br>
+            </div>
+        {% endfor %}
+        <br>
+        <br>
+        <center>
+            <a href="/home/create_card"><input id="button" type="submit" value = "Add Card" /></a>
+            <a href="/home/move_task"><input id="button" type="submit" value = "Move list" /></a>
+        </center>
+    </div>
+</body>
+</html>

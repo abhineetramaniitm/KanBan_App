@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update List</title>
+    <style type="text/css">
+        #header {font-size: 40px},
+        #summary {text-align: right},
+        #logout {text-align: right}
+        body{
+                 background: lime-yellow;
+                 }
+        p{  font-size: 32px;
+            color: #AFFD19;
+            font-weight: bold;
+            }
+        input{ size: 18px;}
+        label{ font-size: 18px;}
+        a{color: white;}
+        #button{background: black;
+                color: white;
+                }
+    </style>
+</head>
+<body>
+    <div id="header">
+	    Hi, {{username}}
+        <span style="float:right;"><a id="summary" href="/home/summary">Summary</a> |<a href="/home/logout">Logout</a></span>
+    </div>
+    <div id="body">
+        <div>
+            {% if error %}
+                {{ error }}
+            {% endif %}
+        </div>
+    <form action="/home/update_card/update_list" method="POST" id="Update_list-form">
+        <div>
+            <label for="card">Card Name: </label>
+            <select name="card" id="card">
+            {% for c in card %}
+            <option value="{{ c["ID"] }}">{{ c["Name"] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Title: </label>
+            <input type="text" name="title" required />
+        </div>
+        <div>
+            <label>Content:</label>
+            <input type="text" name="content" required />
+        </div>
+         <div>
+            <label>Mark As Complete: </label>
+            <input type="checkbox" name="c_flag" required />
+             <span class ="slider round"></span>
+        </div>
+        <div>
+            <a href="/home"><input id="button" type="submit" value = "Save" /></a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
